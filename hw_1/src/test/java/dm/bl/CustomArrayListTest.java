@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Очень хорошие тесты и проект
 class CustomArrayListTest {
     private final CustomArrayList<Integer> customArrayList = new CustomArrayList<>();
 

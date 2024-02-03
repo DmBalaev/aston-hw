@@ -13,6 +13,8 @@ import java.util.Objects;
  */
 public class CustomArrayList<E extends Comparable<E>> implements DynamicArray<E> {
 
+    public static final int DEFAULT_SIZE = 10;
+    public static final String ILLEGAL_INDEX_ERR_MSG = "The index must not be negative or outside the scope of the collection";
     /**
      * The array storing the elements of the list.
      */
@@ -27,7 +29,7 @@ public class CustomArrayList<E extends Comparable<E>> implements DynamicArray<E>
      * Constructs an empty CustomArrayList with initial capacity of 10.
      */
     public CustomArrayList() {
-        this.data = new Object[10];
+        this.data = new Object[DEFAULT_SIZE];
         this.size = 0;
     }
 
@@ -71,7 +73,7 @@ public class CustomArrayList<E extends Comparable<E>> implements DynamicArray<E>
      */
     private void checkCorrectIndex(int index) {
         if (index > size || index < 0){
-            throw new IllegalArgumentException("The index must not be negative or outside the scope of the collection");
+            throw new IllegalArgumentException(ILLEGAL_INDEX_ERR_MSG);
         }
     }
 
