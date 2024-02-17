@@ -32,7 +32,7 @@ public class JDBCRepositoryDepartment implements Repository<Department, Long> {
             preparedStatement.executeUpdate();
 
             try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
-                if (generatedKeys.next()) {
+                if (generatedKeys.next()) { // тут сильно большая вложенность, больше 2 табов нежелательно, я бы на твоем месте на приватные методы разбил.
                     long id = generatedKeys.getLong(1);
                     entity.setId(id);
                     log.info("Saved department with id: {}", id);
@@ -57,7 +57,7 @@ public class JDBCRepositoryDepartment implements Repository<Department, Long> {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Department department = new Department();
-                department.setId(resultSet.getLong("id"));
+                department.setId(resultSet.getLong("id")); // это лучше в маппер
                 department.setName(resultSet.getString("name"));
 
                 departments.add(department);

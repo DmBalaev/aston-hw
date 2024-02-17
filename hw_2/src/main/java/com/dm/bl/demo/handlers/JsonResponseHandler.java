@@ -11,7 +11,7 @@ public class JsonResponseHandler {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
 
-        ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper mapper = new ObjectMapper(); // лучше вынести маппер в поле, зачем каждый раз его создавать?
         String json;
 
         if (data instanceof String){
